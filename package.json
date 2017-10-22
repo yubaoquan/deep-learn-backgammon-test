@@ -2,7 +2,7 @@
   "name": "deep",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "yubaoquan <hzyubaoquan@corp.netease.com>",
+  "author": "yubaoquan",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
