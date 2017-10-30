@@ -13,8 +13,8 @@ const Perceptron = {
         console.info(this.weights, this.bias)
     },
     predict(inputVec) {
-        const x = inputVec.reduce((sum, item, index) => {
-            return sum + item * this.weights[index]
+        const x = inputVec.reduce((sum, x, index) => {
+            return sum + x * this.weights[index]
         }, 0.0) + this.bias
         return this.activator(x)
     },
@@ -25,11 +25,14 @@ const Perceptron = {
     },
     oneIteration(inputVecs, labels, rate) {
         const samples = inputVecs.map((vec, index) => {
-            return [vec, labels[index]]
+            return {
+                vec,
+                label: labels[index]
+            }
         })
         samples.forEach((item, index) => {
-            const output = this.predict(item[0])
-            this.updateWeights(item[0], output, item[1], rate)
+            const output = this.predict(item.vec)
+            this.updateWeights(item.vec, output, item.label, rate)
         })
     },
     updateWeights(inputVec, output, label, rate) {
