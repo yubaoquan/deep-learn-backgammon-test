@@ -3,8 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import foo from './foo'
+import text from './namelist.txt'
 
 Vue.config.productionTip = false
+
+console.info(text)
 
 /* eslint-disable no-new */
 new Vue({

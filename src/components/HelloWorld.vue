@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
-        <div id="playground" class="playground">
+        <div id="playground" class="playground" style="display: none;">
             <div class="row" v-for="row, rowIndex in playground">
                 <div class="cell" v-for="cell, cellIndex in row">
                     <div class="piece black" v-if="rowIndex === 0"></div>

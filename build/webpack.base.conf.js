@@ -27,8 +27,25 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  resolveLoader: {
+      modules: [
+          'node_modules',
+          path.resolve(__dirname, '../webpack-loader'),
+      ],
+  },
   module: {
     rules: [
+        {
+            test: /namelist.txt$/,
+            use: [
+                {
+                    loader: path.resolve(__dirname, '../webpack-loader/loader1.js'),
+                    options: {
+                        a: 123,
+                    },
+                },
+            ],
+        },
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
